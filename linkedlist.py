@@ -1,67 +1,52 @@
-"""Operations on linked list nodes."""
+"""Code for linked lists."""
 
-def make_node(x, y):
-    return [x, y]
+def empty_linked_list():
+    """Creates an empty linked list."""
+    return None
 
+def make_node(val, nxt):
+    """Creates a linked list node."""
+    return [val, nxt]
 
-def value(p):
-    return p[0]
+def value(node):
+    """Returns the value of a linked list node."""
+    return node[0]
 
+def next(node):
+    """Returns the next node of a linked list node."""
+    return node[1]
 
-def next(p):
-    return p[1]
+def set_value(node, val):
+    """Resets the value of a linked list node."""
+    node[0] = val
 
+def set_next(node, next_node):
+    """Resets the next node of a linked list node."""
+    node[1] = next_node
 
-def set_value(p, val):
-    p[0] = val
+def is_empty(node):
+    """Returns whether a linked list is empty."""
+    return node == None
 
+def convert_to_linked_list(ls):
+    """Converts a Python list to a linked list."""
+    head = None
+    for value in ls[::-1]:
+        head = [value, head]
+    return head
 
-def set_next(p, node):
-    p[1] = node
-
-
-"""Operations on linked lists."""
-
-def make_empty_linked_list():
-    return [None]
-
-
-def is_empty(ls):
-    return ls[0] == None
-
-
-def head(ls):
-    return ls[0]
-
-
-def set_head(ls, node):
-    ls[0] = node
-
-
-def append(ls, value):
-    if is_empty(ls):
-        set_head(ls, make_node(value, None))
+def ll_str(node):
+    """Represents a linked list as a string."""
+    if is_empty(node):
+        return "<>"
     else:
-        node = head(ls)
-        while next(node) != None:
-            node = next(node)
-        set_next(node, make_node(value, None))
-    
+        prefix = "<"        
+        while not is_empty(next(node)):
+            prefix += str(value(node)) + ", "
+            node = next(node)        
+        return prefix + str(value(node)) + ">"
 
-def lstr(ls):
-    result = "<"
-    node = head(ls)
-    while node != None:
-        result = result + str(value(node)) + ", "
-        node = next(node)
-    if result[-1] == ' ':
-        result = result[:-2]
-    result = result + ">"
-    return result
-
-
-def lprint(ls):
-    print(lstr(ls))
-
-
+def ll_print(linked_list):
+    """Convenience function for printing a linked list."""
+    print(ll_str(linked_list))
 

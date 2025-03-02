@@ -1,61 +1,62 @@
-from linkedlist import make_node, head, value, next, set_head, set_next, is_empty
-from linkedlist import lstr
-from linkedlist import append
-from linkedlist import make_empty_linked_list
+from linkedlist import value, next, set_next, 
+from linkedlist import is_empty, make_node, ll_str
 
+def remove_all(llist, val):    
+    """Replace this with your code for Question One ("Missing Links")."""
 
-def sum_up(ls):
-    """ Replace this with your code for Question One ("Add Em Up, Cookie!"). """
+def empty_stack():
+    """This code is provided for you by Cookie Monster. Do not modify it!"""
+    return None
 
-
-def remove_all(ls, value):
-    """ Replace this with your code for Question Two ("One of These Things"). """
-
-
-def push(stack, element):
-    """ Replace this with your code for Question Three ("Six Feet Under"). """
-
-
+def put(stack, val):
+    """Replace this with your code for Question Two ("Pushing Up Daisies")."""
+    
 def peek(stack):
-    """ Replace this with your code for Question Four ("Don't Look"). """
-
+    """Replace this with your code for Question Three ("Peek-a-boo")."""
 
 def pop(stack):
-    """ Replace this with your code for Question Five ("Once You Pop"). """
-
+    """Replace this with your code for Question Four ("Once You Pop")."""
 
 def initial_towers(k):
-    """ This code is provided for you by Cookie Monster. Do not modify it!"""
-    left, middle, right = make_empty_linked_list(), make_empty_linked_list(), make_empty_linked_list()
-    for i in range(k, 0, -1):
-        push(left, i)
+    """This code is provided for you by Cookie Monster. Do not modify it!"""
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    left, middle, right = None, None, None
+    for i in range(k-1, -1, -1):
+        left = put(left, alphabet[i])
     return [left, middle, right]
 
+def example_towers():
+    """This code is provided for you by Cookie Monster. Do not modify it!"""    
+    left, middle, right = None, None, None
+    left = put(left, "E")
+    left = put(left, "D")
+    middle = put(middle, "B")
+    middle = put(middle, "A")
+    right = put(right, "C")
+    return [left, middle, right]
 
-def tstr(towers):
-    """ Replace this with your code for Question Six ("You Can't Stop"). """
-
+def towers_str(towers):
+    """Replace this with your code for Question Five ("You Can't Stop")."""
+    
+def print_towers(towers):
+    """This code is provided for you by Cookie Monster. Do not modify it!"""    
+    print(towers_str(towers))
 
 def which_move(towers, t1, t2):
-    """ Replace this with your code for Question Seven ("One Way or Another"). """
-
-
+    """Replace this with your code for Question Six ("One Way Or Another")."""
+    
 def move(towers, src, dest):
-    """ Replace this with your code for Question Eight ("Gonna Give You The Slip"). """
-
+    """Replace this with your code for Question Seven ("Gonna Give You The Slip")."""
 
 def solve(k):
-    """ Replace this with your code for Question Nine ("Gonna Get Ya"). """
-
+    """Replace this with your code for Question Eight ("Gonna Get Ya")."""
 
 def make_moves(k):
-    """ This code is provided for you by Cookie Monster. Do not modify it!"""
+    """This code is provided for you by Cookie Monster. Do not modify it!"""
     towers = initial_towers(k)
     moves = solve(k)
-    print('Original towers   : ' + tstr(towers))
-    node = head(moves)
-    while node != None: 
-        next_move = value(node)       
+    print('Original towers   : ' + towers_str(towers))
+    for next_move in moves:
         move(towers, next_move[0], next_move[1])
-        print('After move ' + str(next_move) + ' : ' + tstr(towers))
-        node = next(node)
+        print('After move ' + str(next_move) + ' : ' + towers_str(towers))
+        
