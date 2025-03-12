@@ -1,4 +1,4 @@
-from linkedlist import value, next, set_next, 
+from linkedlist import value, next, set_next
 from linkedlist import is_empty, make_node, ll_str
 
 def remove_all(llist, val):    
